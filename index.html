@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P File Transfer</title>
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>P2P File Transfer</h1>
+    <p>Your Peer ID: <span id="peerIdDisplay">Not available</span></p>
+    <p>Status: <span id="statusDisplay">Disconnected</span></p>
+    <input type="file" id="fileInput" />
+    <div id="peerConnectionSection">
+        <input type="text" id="peerIdInput" placeholder="Enter Peer ID to connect" />
+        <button id="connectButton">Connect</button>
+    </div>
+    <p>Received File: <a id="downloadLink" href="#" download="received-file">Download</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.5/dist/peerjs.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
