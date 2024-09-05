@@ -37,7 +37,17 @@ peer.on('connection', connection => {
             downloadLink.href = url;
             downloadLink.download = data.file.name; // Set the filename from metadata
             downloadLink.textContent = `Download ${data.file.name}`; // Update the link text to the file name
+            downloadLink.classList.remove('hidden'); // Show the download link
+            downloadLink.removeAttribute('disabled'); // Enable the download link
             updateStatus('File received');
+
+            // Clear the file after 10 seconds
+            setTimeout(() => {
+                downloadLink.classList.add('hidden'); // Hide the download link
+                downloadLink.href = '#'; // Reset the href
+                downloadLink.removeAttribute('download'); // Remove the download attribute
+                updateStatus('File cleared');
+            }, 10000);
         }
     });
 
@@ -104,7 +114,17 @@ connectButton.addEventListener('click', () => {
                 downloadLink.href = url;
                 downloadLink.download = data.file.name; // Set the filename from metadata
                 downloadLink.textContent = `Download ${data.file.name}`; // Update the link text to the file name
+                downloadLink.classList.remove('hidden'); // Show the download link
+                downloadLink.removeAttribute('disabled'); // Enable the download link
                 updateStatus('File received');
+
+                // Clear the file after 10 seconds
+                setTimeout(() => {
+                    downloadLink.classList.add('hidden'); // Hide the download link
+                    downloadLink.href = '#'; // Reset the href
+                    downloadLink.removeAttribute('download'); // Remove the download attribute
+                    updateStatus('File cleared');
+                }, 10000);
 
                 // Send acknowledgment of file reception
                 conn.send({ status: 'received' });

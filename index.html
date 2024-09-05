@@ -6,6 +6,7 @@
     <title>P2P File Transfer</title>
     <style>
         .hidden { display: none; }
+        #downloadLink[disabled] { pointer-events: none; color: grey; }
     </style>
 </head>
 <body>
@@ -17,7 +18,9 @@
         <input type="text" id="peerIdInput" placeholder="Enter Peer ID to connect" />
         <button id="connectButton">Connect</button>
     </div>
-    <p>Received File: <a id="downloadLink" href="#" download="received-file">Download</a></p>
+    <p>Received File: 
+        <a id="downloadLink" href="#" download="received-file" class="hidden" disabled>Download File</a>
+    </p>
     <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <script src="app.js"></script>
 </body>
