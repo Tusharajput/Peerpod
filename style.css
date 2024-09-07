@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #502727;
+  color: aliceblue;
+  font-family: "Baloo 2", cursive;
+}
+h1 {
+  font-size: 50px;
+}
+.hidden {
+  display: none;
+}
+#downloadLink[disabled] {
+  pointer-events: none;
+  color: grey;
+}
+.peer-id-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#copyButton {
+  margin-left: 10px;
+}
+#qrCode {
+  margin-left: 20px;
+}
+#scanner {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+/* Media queries to show/hide the QR code scanner button based on device type */
+@media (min-width: 768px) {
+  #scanQRButton {
+    display: none; /* Hide on tablets and larger devices */
+  }
+}
+
+@media (max-width: 767px) {
+  #scanQRButton {
+    display: inline-block; /* Show on mobile phones */
+  }
+}
+#connectButton {
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+#copyButton {
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#peerIdInput {
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+#peerConnectionSection {
+  padding: 4px 13px 2px 1px;
+}
+#fileInput {
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+.peer-id-container {
+  margin-top: 20px;
+  font-size: 20px;
+}
+h1 {
+  margin: 20px 30px 22px 33px;
+}
+button {
+  cursor: pointer;
+}
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
