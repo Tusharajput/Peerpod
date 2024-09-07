@@ -59,6 +59,11 @@ peer.on('connection', connection => {
     connection.on('close', () => {
         updateStatus('Disconnected');
     });
+
+    connection.on('error', err => {
+        console.error('Connection error: ', err);
+        updateStatus('Connection error');
+    });
 });
 
 peer.on('disconnected', () => {
@@ -139,6 +144,13 @@ connectButton.addEventListener('click', () => {
         conn.on('close', () => {
             updateStatus('Disconnected');
         });
+
+        conn.on('error', err => {
+            console.error('Connection error: ', err);
+            updateStatus('Connection error');
+        });
+    } else {
+        updateStatus('Please enter a valid Peer ID');
     }
 });
 
@@ -184,62 +196,20 @@ scanQRButton.addEventListener('click', () => {
         {
             fps: 10, // Frame rate
         },
-        (decodedText, decodedResult) => {
-            console.log(`Decoded Text: ${decodedText}`);
-            
-            // Hide the scanner div
-            scannerDiv.classList.add('hidden');
-            
+        (decodedText) => {
             // Stop the scanner
-            qrScanner.stop();
-            
-            // Process the decoded text (e.g., authenticate/ connect to peer)
-            authenticatePeer(decodedText);
+            qrScanner.stop().then(() => {
+                scannerDiv.classList.add('hidden'); // Hide the scanner div
+                peerIdInput.value = decodedText; // Set the decoded text to the input field
+                connectButton.click(); // Trigger the connect button click event
+            }).catch(err => {
+                console.error('Failed to stop scanner: ', err);
+            });
         },
         (errorMessage) => {
-            console.error(`QR code scanning error: ${errorMessage}`);
+            console.error('QR code scan error: ', errorMessage);
         }
     ).catch(err => {
-        console.error(`QR code scanner initialization error: ${err}`);
+        console.error('Failed to start scanner: ', err);
     });
 });
-
-// Function to handle authentication or peer connection
-function authenticatePeer(peerId) {
-    conn = peer.connect(peerId);
-    
-    conn.on('open', () => {
-        updateStatus('Connected to peer: ' + peerId);
-
-        // Hide peer ID input section after connection
-        peerConnectionSection.classList.add('hidden');
-    });
-
-    conn.on('data', data => {
-        if (data.file) {
-            const blob = new Blob([data.file.content], { type: data.file.type });
-            const url = URL.createObjectURL(blob);
-            downloadLink.href = url;
-            downloadLink.download = data.file.name; // Set the filename from metadata
-            downloadLink.textContent = `Download ${data.file.name}`; // Update the link text to the file name
-            downloadLink.classList.remove('hidden'); // Show the download link
-            downloadLink.removeAttribute('disabled'); // Enable the download link
-            updateStatus('File received');
-
-            // Clear the file after 10 seconds
-            setTimeout(() => {
-                downloadLink.classList.add('hidden'); // Hide the download link
-                downloadLink.href = '#'; // Reset the href
-                downloadLink.removeAttribute('download'); // Remove the download attribute
-                updateStatus('File cleared');
-            }, 10000);
-
-            // Send acknowledgment of file reception
-            conn.send({ status: 'received' });
-        }
-    });
-
-    conn.on('close', () => {
-        updateStatus('Disconnected');
-    });
-}
