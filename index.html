@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>P2P File Transfer</title>
     <style>
         .hidden { display: none; }
         #downloadLink[disabled] { pointer-events: none; color: grey; }
+        .peer-id-container { display: flex; align-items: center; }
+        #copyButton { margin-left: 10px; }
+        #qrCode { margin-left: 20px; }
+        #scanner { width: 300px; height: 300px; border: 1px solid black; margin-top: 10px; }
+        
+        /* Media queries to show/hide the QR code scanner button based on device type */
+        @media (min-width: 768px) {
+            #scanQRButton {
+                display: none; /* Hide on tablets and larger devices */
+            }
+        }
+        
+        @media (max-width: 767px) {
+            #scanQRButton {
+                display: inline-block; /* Show on mobile phones */
+            }
+        }
     </style>
 </head>
 <body>
     <h1>P2P File Transfer</h1>
-    <p>Your Peer ID: <span id="peerIdDisplay">Not available</span></p>
+    <p class="peer-id-container">
+        Your Peer ID: <span id="peerIdDisplay">Not available</span>
+        <button id="copyButton">Copy</button>
+        <img id="qrCode" alt="QR Code" />
+    </p>
     <p>Status: <span id="statusDisplay">Disconnected</span></p>
     <input type="file" id="fileInput" />
+    
     <div id="peerConnectionSection">
         <input type="text" id="peerIdInput" placeholder="Enter Peer ID to connect" />
         <button id="connectButton">Connect</button>
     </div>
-    <p>Received File: 
+    
+    <p>Received File:
         <a id="downloadLink" href="#" download="received-file" class="hidden" disabled>Download File</a>
     </p>
+    
+    <div id="qrScannerSection">
+        <button id="scanQRButton">Scan QR Code</button>
+        <div id="scanner" class="hidden"></div>
+    </div>
+    
+    <script>
+        document.getElementById("scanQRButton").addEventListener("click", function() {
+            document.getElementById("scanner").classList.remove("hidden");
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.5/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
