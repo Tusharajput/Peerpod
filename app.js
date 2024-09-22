@@ -154,8 +154,6 @@ connectButton.addEventListener("click", () => {
   }
 });
 
-
-
 // Copy Peer ID to clipboard
 copyButton.addEventListener("click", () => {
   const peerId = peerIdDisplay.textContent;
@@ -224,54 +222,53 @@ scanQRButton.addEventListener("click", () => {
     });
 });
 
-
 // <!-- Popup Image Container -->
 // Function to open the image in full-screen
 function openImage(imgElement) {
-  const popup = document.getElementById('imagePopup');
-  const popupImage = document.getElementById('popupImage');
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
 
   popupImage.src = imgElement.src;
-  popup.style.display = 'flex';
+  popup.style.display = "flex";
 }
 
 // Function to close the image popup
 function closeImage() {
-  const popup = document.getElementById('imagePopup');
-  popup.style.display = 'none';
+  const popup = document.getElementById("imagePopup");
+  popup.style.display = "none";
 }
 
 let isZoomed = false;
 
 // Function to open the image in full-screen
 function openImage(imgElement) {
-const popup = document.getElementById('imagePopup');
-const popupImage = document.getElementById('popupImage');
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
 
-popupImage.src = imgElement.src;
-popup.style.display = 'flex';
+  popupImage.src = imgElement.src;
+  popup.style.display = "flex";
 }
 
 // Function to close the image popup
 function closeImage() {
-const popup = document.getElementById('imagePopup');
-popup.style.display = 'none';
-isZoomed = false; // Reset zoom state
-document.getElementById('popupImage').style.transform = 'scale(1)'; // Reset scale
+  const popup = document.getElementById("imagePopup");
+  popup.style.display = "none";
+  isZoomed = false; // Reset zoom state
+  document.getElementById("popupImage").style.transform = "scale(1)"; // Reset scale
 }
 
 // Function to zoom the image on click
 function zoomImage(event) {
-event.stopPropagation();  // Prevent triggering the popup close when clicking on the image
-const popupImage = document.getElementById('popupImage');
+  event.stopPropagation(); // Prevent triggering the popup close when clicking on the image
+  const popupImage = document.getElementById("popupImage");
 
-if (isZoomed) {
-  popupImage.style.transform = 'scale(1)';
-  popupImage.style.cursor = 'zoom-in';
-} else {
-  popupImage.style.transform = 'scale(2)'; // Adjust the scale value for more or less zoom
-  popupImage.style.cursor = 'zoom-out';
-}
+  if (isZoomed) {
+    popupImage.style.transform = "scale(1)";
+    popupImage.style.cursor = "zoom-in";
+  } else {
+    popupImage.style.transform = "scale(2)"; // Adjust the scale value for more or less zoom
+    popupImage.style.cursor = "zoom-out";
+  }
 
-isZoomed = !isZoomed;
+  isZoomed = !isZoomed;
 }

@@ -27,7 +27,7 @@ h1 {
 }
 
 #copyButton {
-  margin-left: 10px;
+  margin-left: -5px;
 }
 #qrCode {
   margin-left: 10px;
@@ -44,7 +44,6 @@ h1 {
   #scanQRButton {
     display: none; /* Hide on tablets and larger devices */
   }
-  
 }
 
 #connectButton {
@@ -97,36 +96,52 @@ button {
 }
 
 input::placeholder {
-   color:#F64668; /* Change this to the color you prefer */
-  opacity: 1;  /* Optional: Set the opacity of the placeholder text */
+  color: #f64668; /* Change this to the color you prefer */
+  opacity: 1; /* Optional: Set the opacity of the placeholder text */
 }
 
 @media (max-width: 767px) {
-  *{
+  * {
     font-size: 18px;
-    background-color: #41436A;
-    color: #F64668;
+    background-color: #41436a;
+    color: #f64668;
   }
   #scanQRButton {
-    display: inline-block; 
+    display: inline-block;
     text-decoration: none;
     border-radius: 20px;
     padding: 80px auto;
-    margin-left: 150px;
+
+    margin-left: 155px;
   }
-  .peer-id-container{
+  .peer-id-container {
     margin-left: 20px;
     justify-content: center;
   }
-  .middle{
+  .middle {
     /* display: flex; */
     flex-direction: column;
     margin: 40px auto;
   }
-  .files{
+  .files {
     display: flex;
     flex-direction: column;
     margin-left: 100px;
+  }
+  #copyButton {
+    margin-right: 7px;
+  }
+  #qrCode {
+    margin-right: 14px;
+  }
+  #connectButton {
+    margin-top: 10px;
+
+    margin-left: 90px;
+  }
+  #peerConnectionSection {
+    padding: 4px 13px 2px 1px;
+    margin-left: 50px;
   }
 }
 

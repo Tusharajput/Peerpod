@@ -12,18 +12,17 @@
     <!-- body -->
     <h1>Transfer files hasle free</h1>
 
-  
     <!-- peer id & qr code -->
     <p class="peer-id-container">
       Peer ID : &nbsp;<span id="peerIdDisplay">Not available</span>
       <button id="copyButton">Copy</button>
       <img id="qrCode" alt="QR Code" onclick="openImage(this)" />
     </p>
-      <!-- Popup Image Container -->
+    <!-- Popup Image Container -->
     <div id="imagePopup" class="image-popup" onclick="closeImage()">
-      <img id="popupImage" src="" alt="Popup Image">
+      <img id="popupImage" src="" alt="Popup Image" />
     </div>
-    
+
     <div class="middle">
       <p>Status: <span id="statusDisplay">Disconnected</span></p>
       <input type="file" id="fileInput" />
@@ -38,7 +37,7 @@
       </div>
     </div>
     <section class="files">
-      <p >
+      <p>
         Received File:
         <span class="abcd">hello there</span>
         <a
