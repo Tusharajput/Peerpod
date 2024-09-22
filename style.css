@@ -3,12 +3,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #502727;
-  color: aliceblue;
+  /* background: #502727; */
+  /* color: aliceblue; */
   font-family: "Baloo 2", cursive;
 }
+
 h1 {
   font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
 }
 .hidden {
   display: none;
@@ -27,7 +30,7 @@ h1 {
   margin-left: 10px;
 }
 #qrCode {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 #scanner {
   width: 300px;
@@ -41,11 +44,28 @@ h1 {
   #scanQRButton {
     display: none; /* Hide on tablets and larger devices */
   }
+  
 }
 
 @media (max-width: 767px) {
   #scanQRButton {
-    display: inline-block; /* Show on mobile phones */
+    display: inline-block; 
+
+    margin-left: 150px;
+  }
+  .peer-id-container{
+    margin-left: 20px;
+    justify-content: center;
+  }
+  .middle{
+    /* display: flex; */
+    flex-direction: column;
+    margin: 40px auto;
+  }
+  .files{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
   }
 }
 #connectButton {
@@ -83,4 +103,15 @@ button {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+.files {
+  /* display: flex; */
+  background-color: azure;
+  /* justify-content:space-around;
+  align-items: center; */
+  /* flex-direction: row; */
+  /* margin: 20px 30px 33px 40px; */
+  display: inline-block;
+  left: 25%;
 }

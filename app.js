@@ -154,6 +154,8 @@ connectButton.addEventListener("click", () => {
   }
 });
 
+
+
 // Copy Peer ID to clipboard
 copyButton.addEventListener("click", () => {
   const peerId = peerIdDisplay.textContent;

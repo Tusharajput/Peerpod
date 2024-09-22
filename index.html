@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="style.css" />
     <title>File_verse</title>
   </head>
+
   <body>
+    <!-- body -->
     <h1>Transfer files hasle free</h1>
+
+  
+    <!-- peer id & qr code -->
     <p class="peer-id-container">
       Peer ID : &nbsp;<span id="peerIdDisplay">Not available</span>
       <button id="copyButton">Copy</button>
@@ -27,18 +32,20 @@
         <button class="connect_button" id="connectButton">Connect</button>
       </div>
     </div>
-
-    <p>
-      Received File:
-      <a
-        id="downloadLink"
-        href="#"
-        download="received-file"
-        class="hidden"
-        disabled
-        >Download File</a
-      >
-    </p>
+    <section class="files">
+      <p >
+        Received File:
+        <span class="abcd">hello there</span>
+        <a
+          id="downloadLink"
+          href="#"
+          download="received-file"
+          class="hidden"
+          disabled
+          >Download File</a
+        >
+      </p>
+    </section>
 
     <div id="qrScannerSection">
       <button id="scanQRButton">Scan QR</button>
