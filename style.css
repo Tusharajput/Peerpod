@@ -1,17 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
-* {
+body {
   margin: 0;
+  color: tomato;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 105, 121, 1) 75%,
+    rgb(18, 48, 54) 100%
+  );
   padding: 0;
+  font-size: 30px;
   box-sizing: border-box;
-  /* background: #502727; */
-  /* color: aliceblue; */
-  font-family: "Baloo 2", cursive;
+  border: none;
 }
+/* Main heading / Title  */
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
+  color: #f64668;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0px;
+
+  margin-bottom: 0px;
+}
+
+/* peer id / copy button / QR code  */
+
+.peer-id-container {
+  /* background: green; */
+  font-size: 25px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+#copyButton > button {
+  cursor: pointer;
+
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+#qrCode {
+  margin-left: 10px;
+}
+
+/* <!-- Status/ file choosen / peer id / connect button / received file / download link / qr scanner / qr code / copy button / popup image --> */
+.middle {
+  /* background: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 .hidden {
   display: none;
@@ -20,18 +62,7 @@ h1 {
   pointer-events: none;
   color: grey;
 }
-.peer-id-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-#copyButton {
-  margin-left: -5px;
-}
-#qrCode {
-  margin-left: 10px;
-}
 #scanner {
   width: 300px;
   height: 300px;
@@ -50,49 +81,32 @@ h1 {
   border-radius: 20px;
   padding: 10px 20px;
 }
-#copyButton {
-  border-radius: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
+
 #peerIdInput {
   border-radius: 20px;
   padding: 10px 20px;
   color: black;
 }
-#peerConnectionSection {
-  padding: 4px 13px 2px 1px;
-}
+
 #fileInput {
   border-radius: 20px;
+
+  padding: 10px 20px;
+
   padding: 10px 20px;
 }
-.peer-id-container {
-  margin-top: 20px;
-  font-size: 20px;
-}
-h1 {
-  margin: 20px 30px 22px 33px;
-}
+
 button {
   cursor: pointer;
 }
-.middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
 
 .files {
-  /* display: flex; */
-  background-color: azure;
-  /* justify-content:space-around;
-  align-items: center; */
-  /* flex-direction: row; */
-  /* margin: 20px 30px 33px 40px; */
-  display: inline-block;
-  left: 25%;
+  /* background-color: rgb(11, 247, 247); */
+  padding-bottom: 40px;
+  padding-top: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 input::placeholder {
@@ -101,47 +115,38 @@ input::placeholder {
 }
 
 @media (max-width: 767px) {
-  * {
-    font-size: 18px;
-    background-color: #41436a;
-    color: #f64668;
-  }
-  #scanQRButton {
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 20px;
-    padding: 80px auto;
-
-    margin-left: 155px;
-  }
-  .peer-id-container {
-    margin-left: 20px;
-    justify-content: center;
-  }
-  .middle {
-    /* display: flex; */
-    flex-direction: column;
-    margin: 40px auto;
-  }
-  .files {
-    display: flex;
-    flex-direction: column;
-    margin-left: 100px;
+  h1 {
+    font-size: 35px;
+    margin-top: 20px;
   }
   #copyButton {
-    margin-right: 7px;
+    padding-left: 0px;
   }
-  #qrCode {
-    margin-right: 14px;
+  #scanQRButton {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 40%;
+    border-radius: 20px;
+    padding: 10px 20px;
   }
-  #connectButton {
-    margin-top: 10px;
+  #statusdisplay {
+    padding-left: 8px;
+  }
+  #fileInput {
+    padding-left: 28px;
+    width: 178px;
+  }
+  .files {
+    padding-top: 0px;
+  }
 
-    margin-left: 90px;
+  .middle {
+    flex-direction: column;
   }
+
   #peerConnectionSection {
     padding: 4px 13px 2px 1px;
-    margin-left: 50px;
   }
 }
 
@@ -152,21 +157,21 @@ input::placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(56, 53, 53, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: rgba(185, 78, 59, 0.699);
+  backdrop-filter: blur(20px);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 .image-popup img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
   box-shadow: 0 4px 10px rgba(216, 207, 207, 0.5);
   border-radius: 8px;
-  cursor: zoom-in;
+  /* cursor: zoom-in; */
   transition: transform 0.3s ease-in-out;
 }
 .image-popup img:hover {
-  transform: scale(1.1);
+  transform: scale(1.7);
 }

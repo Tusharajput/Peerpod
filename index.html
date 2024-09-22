@@ -9,37 +9,47 @@
   </head>
 
   <body>
-    <!-- body -->
-    <h1>Transfer files hasle free</h1>
+    <!-- Title -->
+    <section class="Title">
+      <h1>Transfer files hasle free</h1>
+    </section>
 
     <!-- peer id & qr code -->
-    <p class="peer-id-container">
-      Peer ID : &nbsp;<span id="peerIdDisplay">Not available</span>
-      <button id="copyButton">Copy</button>
-      <img id="qrCode" alt="QR Code" onclick="openImage(this)" />
-    </p>
+    <section class="peer-id-container">
+      <div id="peerIdDisplay">Peer ID : &nbsp;<span></span></div>
+      <div id="copyButton"><button>Copy</button></div>
+      <div><img id="qrCode" alt="QR Code" onclick="openImage(this)" /></div>
+    </section>
+
     <!-- Popup Image Container -->
     <div id="imagePopup" class="image-popup" onclick="closeImage()">
       <img id="popupImage" src="" alt="Popup Image" />
     </div>
 
-    <div class="middle">
-      <p>Status: <span id="statusDisplay">Disconnected</span></p>
+    <!-- Status/ file choosen / peer id / connect button / received file / download link / qr scanner / qr code / copy button / popup image -->
+    <section class="middle">
+      <div>
+        <p style="padding-left: 12px">
+          Status: <span id="statusDisplay">Disconnected</span>
+        </p>
+      </div>
       <input type="file" id="fileInput" />
-
       <div id="peerConnectionSection">
         <input
           type="text"
           id="peerIdInput"
           placeholder="Enter Peer ID to connect"
         />
+      </div>
+      <div>
         <button class="connect_button" id="connectButton">Connect</button>
       </div>
-    </div>
+    </section>
+
+    <!-- received file /download files -->
     <section class="files">
       <p>
-        Received File:
-        <span class="abcd">hello there</span>
+        Received File:<span class="abcd">hello there</span>
         <a
           id="downloadLink"
           href="#"
@@ -67,6 +77,6 @@
     <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <script src="app.js"></script>
+    <script src="App.js"></script>
   </body>
 </html>
