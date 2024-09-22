@@ -223,3 +223,55 @@ scanQRButton.addEventListener("click", () => {
       console.error("Failed to start scanner: ", err);
     });
 });
+
+
+// <!-- Popup Image Container -->
+// Function to open the image in full-screen
+function openImage(imgElement) {
+  const popup = document.getElementById('imagePopup');
+  const popupImage = document.getElementById('popupImage');
+
+  popupImage.src = imgElement.src;
+  popup.style.display = 'flex';
+}
+
+// Function to close the image popup
+function closeImage() {
+  const popup = document.getElementById('imagePopup');
+  popup.style.display = 'none';
+}
+
+let isZoomed = false;
+
+// Function to open the image in full-screen
+function openImage(imgElement) {
+const popup = document.getElementById('imagePopup');
+const popupImage = document.getElementById('popupImage');
+
+popupImage.src = imgElement.src;
+popup.style.display = 'flex';
+}
+
+// Function to close the image popup
+function closeImage() {
+const popup = document.getElementById('imagePopup');
+popup.style.display = 'none';
+isZoomed = false; // Reset zoom state
+document.getElementById('popupImage').style.transform = 'scale(1)'; // Reset scale
+}
+
+// Function to zoom the image on click
+function zoomImage(event) {
+event.stopPropagation();  // Prevent triggering the popup close when clicking on the image
+const popupImage = document.getElementById('popupImage');
+
+if (isZoomed) {
+  popupImage.style.transform = 'scale(1)';
+  popupImage.style.cursor = 'zoom-in';
+} else {
+  popupImage.style.transform = 'scale(2)'; // Adjust the scale value for more or less zoom
+  popupImage.style.cursor = 'zoom-out';
+}
+
+isZoomed = !isZoomed;
+}

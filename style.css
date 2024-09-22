@@ -47,27 +47,6 @@ h1 {
   
 }
 
-@media (max-width: 767px) {
-  #scanQRButton {
-    display: inline-block; 
-
-    margin-left: 150px;
-  }
-  .peer-id-container{
-    margin-left: 20px;
-    justify-content: center;
-  }
-  .middle{
-    /* display: flex; */
-    flex-direction: column;
-    margin: 40px auto;
-  }
-  .files{
-    display: flex;
-    flex-direction: column;
-    margin-left: 100px;
-  }
-}
 #connectButton {
   border-radius: 20px;
   padding: 10px 20px;
@@ -80,6 +59,7 @@ h1 {
 #peerIdInput {
   border-radius: 20px;
   padding: 10px 20px;
+  color: black;
 }
 #peerConnectionSection {
   padding: 4px 13px 2px 1px;
@@ -114,4 +94,64 @@ button {
   /* margin: 20px 30px 33px 40px; */
   display: inline-block;
   left: 25%;
+}
+
+input::placeholder {
+   color:#F64668; /* Change this to the color you prefer */
+  opacity: 1;  /* Optional: Set the opacity of the placeholder text */
+}
+
+@media (max-width: 767px) {
+  *{
+    font-size: 18px;
+    background-color: #41436A;
+    color: #F64668;
+  }
+  #scanQRButton {
+    display: inline-block; 
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 80px auto;
+    margin-left: 150px;
+  }
+  .peer-id-container{
+    margin-left: 20px;
+    justify-content: center;
+  }
+  .middle{
+    /* display: flex; */
+    flex-direction: column;
+    margin: 40px auto;
+  }
+  .files{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+  }
+}
+
+/* <!-- Popup Image Container --> */
+.image-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 53, 53, 0.8);
+  backdrop-filter: blur(10px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.image-popup img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 4px 10px rgba(216, 207, 207, 0.5);
+  border-radius: 8px;
+  cursor: zoom-in;
+  transition: transform 0.3s ease-in-out;
+}
+.image-popup img:hover {
+  transform: scale(1.1);
 }
