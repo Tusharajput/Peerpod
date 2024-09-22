@@ -269,6 +269,5 @@ function zoomImage(event) {
     popupImage.style.transform = "scale(2)"; // Adjust the scale value for more or less zoom
     popupImage.style.cursor = "zoom-out";
   }
-
   isZoomed = !isZoomed;
 }
